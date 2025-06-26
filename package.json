@@ -1,8 +1,8 @@
 {
-  "name": "@dingshaohua/utils",
-  "version": "0.0.1-alpha.1",
+  "name": "@dingshaohua.com/utils",
+  "version": "0.0.1-alpha.4",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "types": "types/index.d.ts",
   "keywords": [],
   "author": "",
