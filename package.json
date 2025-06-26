@@ -1,6 +1,6 @@
 {
   "name": "@dingshaohua.com/utils",
-  "version": "0.0.1-alpha.4",
+  "version": "0.0.1-alpha.5",
   "description": "",
   "main": "dist/index.js",
   "types": "types/index.d.ts",
@@ -8,13 +8,14 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "build": "tsc"
+    "build": "shx rm -rf types dist && tsc"
   },
   "files": [
     "dist",
     "types"
   ],
   "devDependencies": {
+    "shx": "^0.4.0",
     "typescript": "^5.8.3"
   }
 }

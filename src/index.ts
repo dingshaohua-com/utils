@@ -1,10 +1,3 @@
-type StrParseHtml = {
-  (html: string): {
-    node: Element;
-    attrs: Record<string, string>;
-  };
-};
-
 /**
  * 将 HTML 字符串解析为 DOM 节点和属性对象
  * 
@@ -13,15 +6,11 @@ type StrParseHtml = {
  * @returns {Object} 包含解析结果的对象
  * @returns {Element} returns.node - 解析后的 DOM 元素节点
  * @returns {Record<string, string>} returns.attrs - 元素的所有属性键值对
- * 
- * @example
- * ```typescript
- * const result = strParseHtml('<card msg="hello" class="btn"/>');
- * console.log(result.node); // <card msg="hello" class="btn">
- * console.log(result.attrs); // { msg: "hello", class: "btn" }
- * ```
  */
-export const strParseHtml: StrParseHtml = (html) => {
+export const jsonToHtmlAttr = (html: string): {
+  node: Element;
+  attrs: Record<string, string>;
+} => {
   const parser = new DOMParser();
 
   // 将 HTML 字符串解析为 DOM 文档对象,例如：'<card msg="hello"/>' 会被解析为 DOM 结构
@@ -51,28 +40,8 @@ export const strParseHtml: StrParseHtml = (html) => {
  * @description 将键值对对象转换为 HTML 标签属性字符串形式，用于动态生成 HTML 属性
  * @param {Record<string, string>} attrs - 要转换的属性对象
  * @returns {string} HTML 属性字符串，如果对象为空或无效则返回空字符串
- * 
- * @example
- * ```typescript
- * const attrs = { class: "btn", id: "submit", "data-value": "123" };
- * const attrStr = jsonToHtmlAttrStr(attrs);
- * console.log(attrStr); // ' class="btn" id="submit" data-value="123"'
- * 
- * // 在 HTML 中使用
- * const html = `<button${attrStr}>点击</button>`;
- * // 结果: <button class="btn" id="submit" data-value="123">点击</button>
- * ```
- * 
- * @example
- * ```typescript
- * // 处理空对象
- * jsonToHtmlAttrStr({}); // ""
- * 
- * // 处理包含空值的对象
- * jsonToHtmlAttrStr({ class: "btn", id: "" }); // ' class="btn"'
- * ```
  */
-export const jsonToHtmlAttrStr = (attrs: Record<string, string>) => {
+export const htmlAttrToJson = (attrs: Record<string, string>) => {
   if (!attrs || typeof attrs !== "object") {
     return "";
   }
