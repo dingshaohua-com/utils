@@ -7,7 +7,7 @@
  * @returns {Element} returns.node - 解析后的 DOM 元素节点
  * @returns {Record<string, string>} returns.attrs - 元素的所有属性键值对
  */
-export const jsonToHtmlAttr = (html: string): {
+export const htmlAttrToJson = (html: string): {
   node: Element;
   attrs: Record<string, string>;
 } => {
@@ -41,7 +41,7 @@ export const jsonToHtmlAttr = (html: string): {
  * @param {Record<string, string>} attrs - 要转换的属性对象
  * @returns {string} HTML 属性字符串，如果对象为空或无效则返回空字符串
  */
-export const htmlAttrToJson = (attrs: Record<string, string>) => {
+export const jsonToHtmlAttr = (attrs: Record<string, string>) => {
   if (!attrs || typeof attrs !== "object") {
     return "";
   }
